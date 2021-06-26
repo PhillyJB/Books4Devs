@@ -13,6 +13,7 @@ def index():
 def glossary():
     return render_template("glossary.html")
 
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
