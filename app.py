@@ -31,6 +31,28 @@ def user():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # we then need to check if the username already exists 
+        # in the db - we use the get method
+        # on our form to check if the key value matches #anything in our db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+        # this acts as the else statement which creates the 
+        # dictionary to be inserted
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        #this then inserts the dictionary abive into our mongodb 
+        #collection for users
+        mongo.db.users.insert_one(register)
+
+        #put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful")
     return render_template("register.html")
 
 

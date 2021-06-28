@@ -32,17 +32,33 @@
 
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Log In</a></li>
 
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ url_for('register') }}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page"
+                            href="{{ url_for('register') }}">Register</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <section>
+        <!--Flash messages-->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row">
+                        <div class="col" style="background-color: red; margin-top: 5px;">
+                            <h4 class="flash-message" style="text-align: center; line-height: 5px; margin-top: 5px;">{{ message }}</h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
     {% block content %}
     {% endblock %}
     <!-- Footer-->
     <footer class="py-5 bg-dark">
-        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+        </div>
     </footer>
     <!--JQuery CDN-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
