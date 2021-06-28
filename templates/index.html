@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Home - Books List</h1>
+
+{% for book in developer_books %}
+    {{ book.title }}<br>
+    {{ book.imgURL }}<br>
+    {{ book.desc }}<br>
+    {{ book.author }}<br>
+{% endfor %}
 {% endblock %}
