@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -23,9 +24,14 @@ def index():
     return render_template("index.html", developer_books=developer_books)
 
 
-@app.route("/glossary")
-def glossary():
-    return render_template("glossary.html")
+@app.route("/user")
+def user():
+    return render_template("user.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
 
 
 if __name__ == "__main__":
