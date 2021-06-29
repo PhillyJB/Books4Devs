@@ -4,21 +4,20 @@
 
 <div class="container">
     <div class="row">
-        <div class="col col-lg-4" style="display: inline-block;">
-            <!-- Blog post-->
-            {% for book in developer_books %}
-            <div class="card mb-5">
-                <a href="#!"><img class="card-img-top" src="{{ book.imgURL }}"
-                        alt="..." /></a>
-                <div class="card-body">
-                    <h2 class="card-title h4">{{ book.title }}</h2>
-                    <p class="card-text">{{ book.author }}</p>
-                    <a class="btn btn-primary" href="#!">Read more →</a>
+        {% for book in developer_books %}
+            <div class="col-12 col-md-6 col-lg-4 ">
+                <!-- Blog post-->
+                <div class="card mb-5">
+                    <a href="#!"><img class="card-img-top" src="{{ book.imgURL }}"
+                            alt="..." /></a>
+                    <div class="card-body">
+                        <h2 class="card-title h4">{{ book.title }}</h2>
+                        <p class="card-text">{{ book.author }}</p>
+                        <a class="btn btn-primary" href="#!">Read more →</a>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-        
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
