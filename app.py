@@ -20,7 +20,9 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    developer_books = mongo.db.developerBooks.find()
+    developer_books = list(mongo.db.developerBooks.find())
+    #this developer_books is technically not a list but a mongo
+    #cursor object, we turn it into a proper list
     return render_template("index.html", developer_books=developer_books)
 
 
@@ -60,7 +62,7 @@ def login():
         #we will check to see if the username already exists in our db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+       
         if existing_user:
             #we need to make sure the existing hash password matches the input
             if check_password_hash(
@@ -74,7 +76,7 @@ def login():
                 #if the password is invalid/does not match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-        
+
         else:
             # username does not exist
             flash("Incorrect Username and/or Password")

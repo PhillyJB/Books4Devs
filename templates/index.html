@@ -2,14 +2,23 @@
 {% block content %}
 <h1>Home - Books List</h1>
 
-{% for book in developer_books %}
-    {{ book.title }}<br>
-    {{ book.imgURL }}<br>
-    {{ book.desc }}<br>
-    {{ book.author }}<br>
-    {{ book.rating }}<br>
-    {{ book.comments }}<br>
-    {{ book.get_book }}<br>
-    <br>
-{% endfor %}
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-4" style="display: inline-block;">
+            <!-- Blog post-->
+            {% for book in developer_books %}
+            <div class="card mb-5">
+                <a href="#!"><img class="card-img-top" src="{{ book.imgURL }}"
+                        alt="..." /></a>
+                <div class="card-body">
+                    <h2 class="card-title h4">{{ book.title }}</h2>
+                    <p class="card-text">{{ book.author }}</p>
+                    <a class="btn btn-primary" href="#!">Read more →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
 {% endblock %}
