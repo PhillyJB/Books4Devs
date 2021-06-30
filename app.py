@@ -114,7 +114,8 @@ def add_book():
     if request.method == "POST":
         # we want to add this posted form to the developerBooks collection
         # in our books4Devs db
-        # we create a new dict (called book_details) to store all the values we get from the form
+        # we create a new dict (called book) to store all the values
+        # we get from the form
         # ready to be inserted into our colleciton via the mongo.db method.
         book = {
             "title": request.form.get("title"),
@@ -129,19 +130,49 @@ def add_book():
 
         mongo.db.developerBooks.insert_one(book)
         flash("Your book was successfully added")
-        return redirect(url_for("index"))
+        return redirect(url_for(
+            "profile", username=session["user"]))
 
     return render_template("add_book.html")
 
 
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    # we need to get the correct book(document) from the db
-    # so we use target the objectid of the book variable using the import bson
-    # the bson format is what is accepted readable by mondodb
-    book = mongo.db.developerBooks.find_one({"_id": ObjectId(book_id)})
+    if request.method == "POST":
+        # we want to post this edited form to the developerBooks collection
+        # in our books4Devs db
+        # we create a new dict (called book_edits) to store all the values we get from the edit_book form
+        # ready to be inserted into our colleciton modification in the mongo.db method.
+        book_edits = {
+            "title": request.form.get("title"),
+            "imgURL": request.form.get("imgURL"),
+            "author": request.form.get("author"),
+            "desc": request.form.get("desc"),
+            "rating": int(request.form.get("rating")),
+            "comments": request.form.get("comments"),
+            "get_book": request.form.get("get_book"),
+            "added_by": session["user"]
+        }
 
+        # this time in our mongo.db update we use .update()
+        # this takes two parameters which are both dicts.
+        mongo.db.developerBooks.update({"_id": ObjectId(book_id)}, book_edits)
+        flash("Your book was successfully Updated")
+        return redirect(url_for(
+            "profile", username=session["user"]))
+    # we need to get the correct book(document) from the db
+    # so we target the objectid of the book variable using the import bson
+    # the bson format is what is accepted readable by mongodb
+    book = mongo.db.developerBooks.find_one({"_id": ObjectId(book_id)})
     return render_template("edit_book.html", book=book)
+
+
+@app.route("/delete_book/<book_id>")
+def delete_book(book_id):
+    mongo.db.developerBooks.remove({"_id": ObjectId(book_id)})
+    flash("Book successfully deleted")
+    return redirect(url_for(
+                        "profile", username=session["user"]))
 
 if __name__ == "__main__":
     app.run(
