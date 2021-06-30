@@ -75,13 +75,14 @@ def login():
         if existing_user:
             # we need to make sure the existing hash password matches the input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
+                existing_user["password"], request.form.get(
+                    "password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
                             request.form.get("username")))
-                    # if log in successful we want the user to go to their
-                    # profile page
-                    return redirect(url_for(
+                # if log in successful we want the user to go to their
+                # profile page
+                return redirect(url_for(
                         "profile", username=session["user"]))
             else:
                 # if the password is invalid/does not match
@@ -104,7 +105,8 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        developer_books = list(mongo.db.developerBooks.find())
+        return render_template("profile.html", developer_books=developer_books, username=username)
 
     return redirect(url_for("login"))
 
