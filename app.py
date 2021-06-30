@@ -116,7 +116,7 @@ def add_book():
         # in our books4Devs db
         # we create a new dict (called book_details) to store all the values we get from the form
         # ready to be inserted into our colleciton via the mongo.db method.
-        book_details = {
+        book = {
             "title": request.form.get("title"),
             "imgURL": request.form.get("imgURL"),
             "author": request.form.get("author"),
@@ -127,7 +127,7 @@ def add_book():
             "added_by": session["user"]
         }
 
-        mongo.db.developerBooks.insert_one(book_details)
+        mongo.db.developerBooks.insert_one(book)
         flash("Your book was successfully added")
         return redirect(url_for("index"))
 
@@ -139,7 +139,7 @@ def edit_book(book_id):
     # we need to get the correct book(document) from the db
     # so we use target the objectid of the book variable using the import bson
     # the bson format is what is accepted readable by mondodb
-    book = mongo.db.tasks.find_one({"_id": ObjectId(book_id)})
+    book = mongo.db.developerBooks.find_one({"_id": ObjectId(book_id)})
 
     return render_template("edit_book.html", book=book)
 
