@@ -7,26 +7,26 @@
         <!--1-title-->
         <div class="mb-3">
             <label for="title" class="form-label">Book Title</label>
-            <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp" required>
+            <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp" value="{{ book.title }}" required>
             <div id="titleHelp" class="form-text">Please enter the full name of the book as it appears on the cover.
             </div>
         </div>
         <!--2-imgURL-link-->
         <div class="mb-3">
             <label for="imgURL" class="form-label">Image URL address</label>
-            <input type="text" name="imgURL" class="form-control" id="imgURL" aria-describedby="imgHelp" required>
+            <input type="text" name="imgURL" class="form-control" id="imgURL" aria-describedby="imgHelp" value="{{ book.imgURL }}" required>
             <div id="imgHelp" class="form-text">Please copy and paste in the book front cover image URL address</div>
         </div>
         <!--3-author(s)-->
         <div class="mb-3">
             <label for="author" class="form-label">Author(s)</label>
-            <input type="text" name="author" class="form-control" id="author" required>
+            <input type="text" name="author" class="form-control" id="author" value="{{ book.author }}" required>
         </div>
         <!--4-description-->
         <div class="mb-3">
             <label for="desc" class="form-label">Book description</label>
             <textarea class="form-control" name="desc" id="desc" rows="3" aria-describedby="imgHelp" maxlength="500"
-                required></textarea>
+                required>{{- book.desc -}}</textarea>
             <div id="desc-max" class="form-text">Please keep the book description less than 500 characters long</div>
         </div>
         <!--5-rating-->
@@ -59,13 +59,13 @@
         <div class="mb-3">
             <label for="comments" class="form-label">Leave your review here</label>
             <textarea class="form-control" name="comments" id="comments" rows="3" aria-describedby="comment-max"
-                maxlength="300" required></textarea>
+                maxlength="300" required>{{- book.comments -}}</textarea>
             <div id="comment-max" class="form-text">Please keep your review less than 300 characters long</div>
         </div>
         <!--7-get the book link-->
         <div class="mb-3">
             <label for="get_book" class="form-label">To get this book:</label>
-            <input type="text" name="get_book" class="form-control" id="get_book">
+            <input type="text" name="get_book" class="form-control" value="{{ book.get_book }}" id="get_book" required>
             <div id="" class="form-text">#</div>
         </div>
         <!--8-terms&condition checkbox-->
@@ -74,7 +74,9 @@
             <label class="form-check-label" for="exampleCheck1">I agree to the Books4Devs <a href="">Terms &
                     Conditions</a> of posting a review</label>
         </div>
-        <!--9-submit form button-->
+        <!--Cancel editing button-->
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Cancel</a>
+        <!--9-edit book submit form button-->
         <button type="submit" class="btn btn-primary mb-3">Edit Book</button>
     </form>
 </div>
