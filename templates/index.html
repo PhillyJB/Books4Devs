@@ -18,19 +18,21 @@
     </div>
 </header>
 <div class="row" style="justify-content: center;">
-    <div class="col-10">
+    <form action="{{ url_for('search') }}" method="POST" class="col-10">
         <h2>All Books</h2>
+        <!--search box-->
         <div class="card mb-4">
             <div class="card-header">Search for book(s)</div>
             <div class="card-body">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Enter search term..."
+                    <input class="form-control" type="text" name="book_search" placeholder="Enter search term..."
                         aria-label="Enter search term..." aria-describedby="button-search" />
-                    <button class="btn btn-primary" id="button-search" type="button">Find Book!</button>
+                    <button class="btn btn-primary" id="book_search" type="submit">Find Book!</button>
                 </div>
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Clear Search</a>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <div class="container">
