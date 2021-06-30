@@ -3,10 +3,17 @@
 <header class="py-1 bg-light border-bottom mb-2">
     <div class="container">
         <div class="text-center my-5">
-            <h1 class="fw-bolder">Welcome to Books4Devs!</h1>
-            <p class="lead mb-0">A platform that allows Software Developers and those interested share reviews,
-                recommendations and comments on books used in the programming world. Why not add your own book reviews
-                too.</p>
+            <h1 class="fw-bolder">Books4Devs!</h1>
+            <p class="lead mb-0">A platform that allows Software Developers and those interested to share reviews,
+                recommendations and comments on books used in the computer programming world.</p>
+            {% if session.user %}
+            <p></p>
+            {% else %}
+            <p class="lead mb-0">
+                Why not <a href="{{ url_for('register') }}">Register</a> or <a href="{{ url_for('login') }}">LogIn </a> and add your own book reviews
+                too.
+            </p>
+            {% endif %}
         </div>
     </div>
 </header>
@@ -36,6 +43,7 @@
                 <div class="card-body">
                     <h2 class="card-title h4">{{ book.title }}</h2>
                     <p class="card-text">{{ book.author }}</p>
+                    <p class="card-text">Added by: {{ book.added_by }}</p>
                     <a class="btn btn-primary" href="#!">Read more →</a>
                 </div>
             </div>

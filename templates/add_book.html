@@ -3,7 +3,7 @@
 
 <h2>Add a Book</h2>
 <div class="row" style="justify-content: center;">
-    <form class="col-10 col-md-8" method="POST" action="">
+    <form class="col-10 col-md-8" method="POST" action="{{ url_for('add_book') }}">
         <!--1-title-->
         <div class="mb-3">
             <label for="title" class="form-label">Book Title</label>
@@ -25,9 +25,9 @@
         <!--4-description-->
         <div class="mb-3">
             <label for="desc" class="form-label">Book description</label>
-            <textarea class="form-control" name="desc" id="desc" rows="3" aria-describedby="imgHelp" maxlength="200"
+            <textarea class="form-control" name="desc" id="desc" rows="3" aria-describedby="imgHelp" maxlength="500"
                 required></textarea>
-            <div id="desc-max" class="form-text">Please keep the book description less than 200 characters long</div>
+            <div id="desc-max" class="form-text">Please keep the book description less than 500 characters long</div>
         </div>
         <!--5-rating-->
         <div class="mb-3">
@@ -55,7 +55,7 @@
                 <label class="form-check-label" for="5-star">5</label>
             </div>
         </div>
-        <!--6-comments-->
+        <!--6-book comments-->
         <div class="mb-3">
             <label for="comments" class="form-label">Leave your review here</label>
             <textarea class="form-control" name="comments" id="comments" rows="3" aria-describedby="comment-max"
@@ -64,15 +64,18 @@
         </div>
         <!--7-get the book link-->
         <div class="mb-3">
-            <label for="get_bbok" class="form-label">To get this book:</label>
-            <input type="text" class="form-control" id="get_book" aria-describedby="">
+            <label for="get_book" class="form-label">To get this book:</label>
+            <input type="text" name="get_book" class="form-control" id="get_book">
             <div id="" class="form-text">#</div>
         </div>
+        <!--8-terms&condition checkbox-->
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-            <label class="form-check-label" for="exampleCheck1">I agree to the Books4Devs <a href="">Terms & Conditions</a>  of posting a review</label>
+            <label class="form-check-label" for="exampleCheck1">I agree to the Books4Devs <a href="">Terms &
+                    Conditions</a> of posting a review</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <!--9-submit form button-->
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
     </form>
 </div>
 {% endblock %}

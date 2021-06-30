@@ -109,8 +109,28 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_book")
+@app.route("/add_book", methods=["GET", "POST"])
 def add_book():
+    if request.method == "POST":
+        # we want to add this posted form to the developerBooks collection
+        # in our books4Devs db
+        # we create a new dict (called book_details) to store all the values we get from the form
+        # ready to be inserted into our colleciton via the mongo.db method.
+        book_details = {
+            "title": request.form.get("title"),
+            "imgURL": request.form.get("imgURL"),
+            "author": request.form.get("author"),
+            "desc": request.form.get("desc"),
+            "rating": int(request.form.get("rating")),
+            "comments": request.form.get("comments"),
+            "get_book": request.form.get("get_book"),
+            "added_by": session["user"]
+        }
+
+        mongo.db.developerBooks.insert_one(book_details)
+        flash("Task successfully Added")
+        return redirect(url_for("index"))
+
     return render_template("add_book.html")
 
 if __name__ == "__main__":
