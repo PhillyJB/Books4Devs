@@ -21,22 +21,23 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
     developer_books = list(mongo.db.developerBooks.find())
-    #this developer_books is technically not a list but a mongo
-    #cursor object, we turn it into a proper list
+    # this developer_books is technically not a list but a mongo
+    # cursor object, we turn it into a proper list
     return render_template("index.html", developer_books=developer_books)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("book_search")
-    developer_books = list(mongo.db.developerBooks.find({"$text": {"$search": book_search}}))
+    book_search = request.form.get("book_search")
+    developer_books = list(mongo.db.developerBooks.find(
+        {"$text": {"$search": book_search}}))
     return render_template("index.html", developer_books=developer_books)
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # we then need to check if the username already exists 
+        # we then need to check if the username already exists
         # in the db - we use the get method
         # on our form to check if the key value matches #anything in our db
         existing_user = mongo.db.users.find_one(
@@ -45,20 +46,21 @@ def register():
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-        # this acts as the else statement which creates the 
+        # this acts as the else statement which creates the
         # dictionary to be inserted
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        #this then inserts the dictionary abive into our mongodb 
-        #collection for users
+        # this then inserts the dictionary abive into our mongodb
+        # collection for users
         mongo.db.users.insert_one(register)
 
-        #put the new user into 'session' cookie
+        # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
-        #if registration successful we want the user to go to their profile page
+        # if registration successful we want the user to go to
+        # their profile page
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
@@ -66,21 +68,23 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        #we will check to see if the username already exists in our db
+        # we will check to see if the username already exists in our db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-       
+
         if existing_user:
-            #we need to make sure the existing hash password matches the input
+            # we need to make sure the existing hash password matches the input
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    #if log in successful we want the user to go to their profile page
+                    flash("Welcome, {}".format(
+                            request.form.get("username")))
+                    # if log in successful we want the user to go to their
+                    # profile page
                     return redirect(url_for(
                         "profile", username=session["user"]))
             else:
-                #if the password is invalid/does not match
+                # if the password is invalid/does not match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
@@ -95,7 +99,7 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # this username variable we create is for the user we find in the db so
-    #so we are grabbing the sessions user's username from db
+    # so we are grabbing the sessions user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -107,10 +111,10 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
-    #remove the iser from the session cookie
-    #this can be done in couple ways
-    #1-session.clear() - which would remove all session cookies on the app
-    #2-session.pop("user")
+    # remove the iser from the session cookie
+    # this can be done in couple ways
+    # 1-session.clear() - which would remove all session cookies on the app
+    # 2-session.pop("user")
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
@@ -148,8 +152,10 @@ def edit_book(book_id):
     if request.method == "POST":
         # we want to post this edited form to the developerBooks collection
         # in our books4Devs db
-        # we create a new dict (called book_edits) to store all the values we get from the edit_book form
-        # ready to be inserted into our colleciton modification in the mongo.db method.
+        # we create a new dict (called book_edits) to store all the values we
+        # # get from the edit_book form
+        # ready to be inserted into our colleciton
+        # modification in the mongo.db method.
         book_edits = {
             "title": request.form.get("title"),
             "imgURL": request.form.get("imgURL"),
@@ -180,6 +186,7 @@ def delete_book(book_id):
     flash("Book successfully deleted")
     return redirect(url_for(
                         "profile", username=session["user"]))
+
 
 if __name__ == "__main__":
     app.run(
