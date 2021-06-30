@@ -133,6 +133,16 @@ def add_book():
 
     return render_template("add_book.html")
 
+
+@app.route("/edit_book/<book_id>", methods=["GET", "POST"])
+def edit_book(book_id):
+    # we need to get the correct book(document) from the db
+    # so we use target the objectid of the book variable using the import bson
+    # the bson format is what is accepted readable by mondodb
+    book = mongo.db.tasks.find_one({"_id": ObjectId(book_id)})
+
+    return render_template("edit_book.html", book=book)
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP"),
