@@ -3,19 +3,74 @@
 
 <h2>Add a Book</h2>
 <div class="row" style="justify-content: center;">
-    <form class="col col-md-8" method="POST" action="">
+    <form class="col-10 col-md-8" method="POST" action="">
+        <!--1-title-->
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="title" class="form-label">Book Title</label>
+            <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp" required>
+            <div id="titleHelp" class="form-text">Please enter the full name of the book as it appears on the cover.
+            </div>
         </div>
+        <!--2-imgURL-link-->
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label for="imgURL" class="form-label">Image URL address</label>
+            <input type="text" name="imgURL" class="form-control" id="imgURL" aria-describedby="imgHelp" required>
+            <div id="imgHelp" class="form-text">Please copy and paste in the book front cover image URL address</div>
+        </div>
+        <!--3-author(s)-->
+        <div class="mb-3">
+            <label for="author" class="form-label">Author(s)</label>
+            <input type="text" name="author" class="form-control" id="author" required>
+        </div>
+        <!--4-description-->
+        <div class="mb-3">
+            <label for="desc" class="form-label">Book description</label>
+            <textarea class="form-control" name="desc" id="desc" rows="3" aria-describedby="imgHelp" maxlength="200"
+                required></textarea>
+            <div id="desc-max" class="form-text">Please keep the book description less than 200 characters long</div>
+        </div>
+        <!--5-rating-->
+        <div class="mb-3">
+            <div>
+                <label for="rating" class="form-label">Rating- How many stars do you give this book out of 5</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="1-star" value="1">
+                <label class="form-check-label" for="1-star">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="2-star" value="2">
+                <label class="form-check-label" for="2-star">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="3-star" value="3">
+                <label class="form-check-label" for="3-star">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="4-star" value="4">
+                <label class="form-check-label" for="4-star">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="5-star" value="5">
+                <label class="form-check-label" for="5-star">5</label>
+            </div>
+        </div>
+        <!--6-comments-->
+        <div class="mb-3">
+            <label for="comments" class="form-label">Leave your review here</label>
+            <textarea class="form-control" name="comments" id="comments" rows="3" aria-describedby="comment-max"
+                maxlength="300" required></textarea>
+            <div id="comment-max" class="form-text">Please keep your review less than 300 characters long</div>
+        </div>
+        <!--7-get the book link-->
+        <div class="mb-3">
+            <label for="get_bbok" class="form-label">To get this book:</label>
+            <input type="text" class="form-control" id="get_book" aria-describedby="">
+            <div id="" class="form-text">#</div>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+            <label class="form-check-label" for="exampleCheck1">I agree to the Books4Devs <a href="">Terms & Conditions</a>  of posting a review</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

@@ -1,22 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>The Books</h1>
+<header class="py-1 bg-light border-bottom mb-2">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Welcome to Books4Devs!</h1>
+            <p class="lead mb-0">A platform that allows Software Developers and those interested share reviews,
+                recommendations and comments on books used in the programming world. Why not add your own book reviews
+                too.</p>
+        </div>
+    </div>
+</header>
+<div class="row" style="justify-content: center;">
+    <div class="col-10">
+        <h2>The Books</h2>
+        <div class="card mb-4">
+            <div class="card-header">Search for book(s)</div>
+            <div class="card-body">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Enter search term..."
+                        aria-label="Enter search term..." aria-describedby="button-search" />
+                    <button class="btn btn-primary" id="button-search" type="button">Find Book!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
         {% for book in developer_books %}
-            <div class="col-12 col-md-6 col-lg-4 ">
-                <!-- Blog post-->
-                <div class="card mb-5">
-                    <a href="#!"><img class="card-img-top" src="{{ book.imgURL }}"
-                            alt="..." /></a>
-                    <div class="card-body">
-                        <h2 class="card-title h4">{{ book.title }}</h2>
-                        <p class="card-text">{{ book.author }}</p>
-                        <a class="btn btn-primary" href="#!">Read more →</a>
-                    </div>
+        <div class="col-12 col-md-6 col-lg-4 ">
+            <!-- Blog post-->
+            <div class="card mb-5">
+                <a href="#!"><img class="card-img-top" src="{{ book.imgURL }}" alt="..." /></a>
+                <div class="card-body">
+                    <h2 class="card-title h4">{{ book.title }}</h2>
+                    <p class="card-text">{{ book.author }}</p>
+                    <a class="btn btn-primary" href="#!">Read more →</a>
                 </div>
             </div>
+        </div>
         {% endfor %}
     </div>
 </div>
