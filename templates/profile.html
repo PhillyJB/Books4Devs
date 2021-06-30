@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row" style="justify-content: center;">
-    <div class="col-8" style="text-align: center;">
+    <div class="col-8 m-3" style="text-align: center;">
         <div class="card">
             <h3 class="card-title">
-                {{ username }}'s Profile
+                {{ username }}'s Books
             </h3>
-            <h4>
-                Your Books
-            </h4>
         </div>
     </div>
 </div>
@@ -18,7 +15,7 @@
         {% for book in developer_books %}
         {% if session.user|lower == book.added_by|lower %}
         <div class="col-12 col-md-6 col-lg-4 ">
-            <!-- Blog post-->
+            <!-- Books Card-->
             <div class="card mb-5">
                 <a href="#!"><img class="card-img-top" src="{{ book.imgURL }}" alt="..." /></a>
                 <div class="card-body">
@@ -26,8 +23,8 @@
                     <p class="card-text">{{ book.author }}</p>
                     <p class="card-text">Added by: {{ book.added_by }}</p>
                     <a class="btn btn-primary" href="#!">Read more</a>
-                    <a class="btn btn-primary" href="{{ url_for('edit_book', book_id=book._id) }}">Edit</a>
-                    <a class="btn btn-primary" href="{{ url_for('delete_book', book_id=book._id) }}">Delete</a>
+                        <a class="btn btn-primary" href="{{ url_for('edit_book', book_id=book._id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ url_for('delete_book', book_id=book._id) }}">Delete</a>
                 </div>
             </div>
         </div>

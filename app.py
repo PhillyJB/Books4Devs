@@ -106,8 +106,8 @@ def profile(username):
 
     if session["user"]:
         developer_books = list(mongo.db.developerBooks.find())
-        return render_template("profile.html", developer_books=developer_books, username=username)
-
+        return render_template(
+            "profile.html", developer_books=developer_books, username=username)      
     return redirect(url_for("login"))
 
 

@@ -19,7 +19,7 @@
 </header>
 <div class="row" style="justify-content: center;">
     <form action="{{ url_for('search') }}" method="POST" class="col-10">
-        <h2>All Books</h2>
+        <h2 style="text-align: center;">All Books</h2>
         <!--search box-->
         <div class="card mb-4">
             <div class="card-header">Search for book(s)</div>
@@ -39,7 +39,7 @@
     <div class="row">
         {% for book in developer_books %}
         <div class="col-12 col-md-6 col-lg-4 ">
-            <!-- Blog post-->
+            <!-- Books Card-->
             <div class="card mb-5">
                 <a href="#!"><img class="card-img-top" src="{{ book.imgURL }}" alt="..." /></a>
                 <div class="card-body">
