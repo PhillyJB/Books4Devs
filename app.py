@@ -128,7 +128,7 @@ def add_book():
         }
 
         mongo.db.developerBooks.insert_one(book_details)
-        flash("Task successfully Added")
+        flash("Your book was successfully added")
         return redirect(url_for("index"))
 
     return render_template("add_book.html")
