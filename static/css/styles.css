@@ -7,3 +7,8 @@
   text-align: center;
   background-color: black ;
 }
+
+.socials-links li {
+  display: inline-block;
+  font-size: large;
+}

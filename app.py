@@ -61,7 +61,7 @@ def register():
         flash("Registration Successful")
         # if registration successful we want the user to go to
         # their profile page
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("index", username=session["user"]))
     return render_template("register.html")
 
 
@@ -105,7 +105,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        developer_books = list(mongo.db.developerBooks.find())
+        developer_books = list(mongo.db.developerBooks.find({"added_by": session["user"] }))
         return render_template(
             "profile.html", developer_books=developer_books, username=username)      
     return redirect(url_for("login"))

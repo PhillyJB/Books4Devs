@@ -3,6 +3,5 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
   });
 
-
 //copyright span year date
 $("#copyright-date").text(new Date().getFullYear());
