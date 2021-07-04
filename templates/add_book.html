@@ -4,73 +4,109 @@
 
 <h2>Add a Book</h2>
 <div class="row" style="justify-content: center;">
-    <form class="col-10 col-md-8" method="POST" action="{{ url_for('add_book') }}">
+    <form class="card col s10" style="margin-left: 20px;" method="POST" action="{{ url_for('add_book') }}">
         <!--1-title-->
-        <div class="mb-3">
-            <label for="title" class="form-label">Book Title</label>
-            <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp" required>
-            <div id="titleHelp" class="form-text">Please enter the full name of the book as it appears on the cover.
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="title" class="form-label">Book Title</label>
+                <input type="text" name="title" class="validate" id="title" aria-describedby="titleHelp" required>
+                <div id="titleHelp" class="form-text">Please enter the full name of the book as it appears on the cover.
+                </div>
             </div>
         </div>
         <!--2-imgURL-link-->
-        <div class="mb-3">
-            <label for="imgURL" class="form-label">Image URL address</label>
-            <input type="text" name="imgURL" class="form-control" id="imgURL" aria-describedby="imgHelp" required>
-            <div id="imgHelp" class="form-text">Please copy and paste in the book front cover image URL address</div>
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="imgURL" class="form-label">Image URL address</label>
+                <input type="text" name="imgURL" class="form-control" id="imgURL" aria-describedby="imgHelp" required>
+                <div id="imgHelp" class="form-text">Please copy and paste in the book front cover image URL address
+                </div>
+            </div>
         </div>
         <!--3-author(s)-->
-        <div class="mb-3">
-            <label for="author" class="form-label">Author(s)</label>
-            <input type="text" name="author" class="form-control" id="author" required>
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="author" class="form-label">Author(s)</label>
+                <input type="text" name="author" class="form-control" id="author" required>
+            </div>
         </div>
         <!--4-description-->
-        <div class="mb-3">
-            <label for="desc" class="form-label">Book description</label>
-            <textarea class="form-control" name="desc" id="desc" rows="3" aria-describedby="imgHelp" maxlength="500"
-                required></textarea>
-            <div id="desc-max" class="form-text">Please keep the book description less than 500 characters long</div>
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="desc" class="form-label">Book description</label>
+                <textarea class="form-control" name="desc" id="desc" rows="3" aria-describedby="imgHelp" maxlength="500"
+                    required></textarea>
+                <div id="desc-max" class="form-text">Please keep the book description less than 500 characters long
+                </div>
+            </div>
         </div>
         <!--5-rating-->
-        <div class="mb-3">
-            <div>
-                <label for="rating" class="form-label">Rating- How many stars do you give this book out of 5:</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <div>
+                    <label for="rating" class="form-label">Rating- How many stars do you give this book out of
+                        10:</label>
+                </div>
+                <input type="number" name="rating" class="form-control" id="rating" min="1" max="10" maxlength="2"
+                    placeholder="only enter a number from 1 to 10" required>
+                <label class="form-label" for="rating"> /10</label>
             </div>
-                <input type="text" name="rating" class="form-control" id="rating" maxlength="1"
-                pattern="^[0-5]" required>
-            <label class="form-label" for="rating">/5</label>
         </div>
-
-</div>
-</div>
-<!--6-book comments-->
-<div class="mb-3">
-    <label for="comments" class="form-label">Leave your review here</label>
-    <textarea class="form-control" name="comments" id="comments" rows="3" aria-describedby="comment-max"
-        maxlength="1000" required></textarea>
-    <div id="comment-max" class="form-text">Please keep your review no more than 1000 characters long</div>
-</div>
-<!--7-get the book link-->
-<div class="mb-3">
-    <label for="get_book" class="form-label">To get this book:</label>
-    <input type="text" name="get_book" class="form-control" id="get_book">
-    <div id="" class="form-text">#</div>
-</div>
-<!--8-terms&condition checkbox-->
-<div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-    <label class="form-check-label" for="exampleCheck1">I agree to the Books4Devs <a class="btn"
-            id="termsConTrigger">Terms &
-            Conditions</a> of posting a review</label>
-    <p id="termsCon">The Terms and Conditions:<br>
-        Users posting books reviews on this site agree to not post any commments that can be deemed to be rude, racist
-        or abusive in any manner. You agree to abstain from vulgar language and keep your comments relative to the book
-        at hand and your experience of it. We encourage complete honesty on a book review but if your comments are
-        deemed to be out of line this will result in your review being removed and even possible deletion of your user
-        account.
-        <p>
-</div>
-<!--9-submit form button-->
-<button type="submit" class="btn btn-primary mb-3">Add Book</button>
-</form>
+        <!--6-book comments-->
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="comments" class="form-label">Leave your review here</label>
+                <textarea class="form-control" name="comments" id="comments" rows="3" aria-describedby="comment-max"
+                    maxlength="1000" required></textarea>
+                <div id="comment-max" class="form-text">Please keep your review no more than 1000 characters long</div>
+            </div>
+        </div>
+        <!--7-get the book link-->
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="get_book" class="form-label">To get this book:</label>
+                <input type="text" name="get_book" class="form-control" id="get_book">
+            </div>
+        </div>
+        <!--8-terms&condition checkbox-->
+        <div class="row">
+            <div class="input-field col s12 formTermsfield">
+                <label class="form-check-label" for="terms-check">
+                    <input type="checkbox" class="" id="terms-check" required>
+                    <span>I agree to the Books4Devs <a class="btn" id="termsConTrigger">Terms &
+                            Conditions</a> of posting a review</span></label>
+            </div>
+            
+        </div>
+        <!--Terms and Conditions Div -->
+        <div class="row" id="termsCon">
+            <div class="col s10">
+                <p><strong>Terms and Conditions:</strong><br>
+                    Users posting books reviews on this site agree to not post any commments that can be deemed
+                    to be
+                    rude,
+                    racist
+                    or abusive in any manner. You agree to abstain from vulgar language and keep your comments
+                    relative
+                    to
+                    the book
+                    at hand and your experience of it. We encourage complete honesty on a book review but if
+                    your
+                    comments
+                    are
+                    deemed to be out of line this will result in your review being removed and even possible
+                    deletion of
+                    your user
+                    account.
+                    <p>
+            </div>
+        </div>
+        <!--9-submit form button-->
+        <div class="row">
+            <div class="col s12">
+                <button type="submit" class="btn">Add Book</button>
+            </div>
+        </div>
+    </form>
 </div>
 {% endblock %}
