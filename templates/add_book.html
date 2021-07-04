@@ -33,50 +33,44 @@
         <!--5-rating-->
         <div class="mb-3">
             <div>
-                <label for="rating" class="form-label">Rating- How many stars do you give this book out of 5</label>
+                <label for="rating" class="form-label">Rating- How many stars do you give this book out of 5:</label>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="1-star" value="1">
-                <label class="form-check-label" for="1-star">1</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="2-star" value="2">
-                <label class="form-check-label" for="2-star">2</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="3-star" value="3">
-                <label class="form-check-label" for="3-star">3</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="4-star" value="4">
-                <label class="form-check-label" for="4-star">4</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="5-star" value="5">
-                <label class="form-check-label" for="5-star">5</label>
-            </div>
+                <input type="text" name="rating" class="form-control" id="rating" maxlength="1"
+                pattern="^[0-5]" required>
+            <label class="form-label" for="rating">/5</label>
         </div>
-        <!--6-book comments-->
-        <div class="mb-3">
-            <label for="comments" class="form-label">Leave your review here</label>
-            <textarea class="form-control" name="comments" id="comments" rows="3" aria-describedby="comment-max"
-                maxlength="300" required></textarea>
-            <div id="comment-max" class="form-text">Please keep your review less than 300 characters long</div>
-        </div>
-        <!--7-get the book link-->
-        <div class="mb-3">
-            <label for="get_book" class="form-label">To get this book:</label>
-            <input type="text" name="get_book" class="form-control" id="get_book">
-            <div id="" class="form-text">#</div>
-        </div>
-        <!--8-terms&condition checkbox-->
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-            <label class="form-check-label" for="exampleCheck1">I agree to the Books4Devs <a href="">Terms &
-                    Conditions</a> of posting a review</label>
-        </div>
-        <!--9-submit form button-->
-        <button type="submit" class="btn btn-primary mb-3">Add Book</button>
-    </form>
+
+</div>
+</div>
+<!--6-book comments-->
+<div class="mb-3">
+    <label for="comments" class="form-label">Leave your review here</label>
+    <textarea class="form-control" name="comments" id="comments" rows="3" aria-describedby="comment-max"
+        maxlength="1000" required></textarea>
+    <div id="comment-max" class="form-text">Please keep your review no more than 1000 characters long</div>
+</div>
+<!--7-get the book link-->
+<div class="mb-3">
+    <label for="get_book" class="form-label">To get this book:</label>
+    <input type="text" name="get_book" class="form-control" id="get_book">
+    <div id="" class="form-text">#</div>
+</div>
+<!--8-terms&condition checkbox-->
+<div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+    <label class="form-check-label" for="exampleCheck1">I agree to the Books4Devs <a class="btn"
+            id="termsConTrigger">Terms &
+            Conditions</a> of posting a review</label>
+    <p id="termsCon">The Terms and Conditions:<br>
+        Users posting books reviews on this site agree to not post any commments that can be deemed to be rude, racist
+        or abusive in any manner. You agree to abstain from vulgar language and keep your comments relative to the book
+        at hand and your experience of it. We encourage complete honesty on a book review but if your comments are
+        deemed to be out of line this will result in your review being removed and even possible deletion of your user
+        account.
+        <p>
+</div>
+<!--9-submit form button-->
+<button type="submit" class="btn btn-primary mb-3">Add Book</button>
+</form>
 </div>
 {% endblock %}
