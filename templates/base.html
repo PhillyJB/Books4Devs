@@ -20,17 +20,18 @@
 
 <body>
     <!-- Responsive navbars-->
-    <!-- Materialize nav bar-->
+    <!-- Materialize main nav bar-->
     <nav>
         <div class="nav-wrapper">
             <a href="{{ url_for('index') }}" class="brand-logo"><i class="fas fa-laptop-code"></i> Books4Devs</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-            <ul class="right hide-on-med-and-down">
+            <ul class="right hide-on-med-and-down" id="navigation">
+                {% set active_page = active_page|default('index') -%}
                 <li {% if request.path == '/' %} class="active"{% endif %}><a href="{{ url_for('index') }}">All Books</a></li>
                 {% if session.user %}
-                <li {% if request.path == "/profile/session['user']" %} class="active"{% endif %}><a href="{{ url_for('profile', username=session['user']) }}">My Books</a></li>
+                <li {% if request.path == '/profile/username=session["user"]' %}{% endif %}><a href="{{ url_for('profile', username=session['user']) }}">My Books</a></li>
                 <li {% if request.path == '/add_book' %} class="active"{% endif %}><a href="{{ url_for('add_book') }}">Add a Book</a></li>
-                <li {% if request.path == '/logout' %} class="active"{% endif %}><a href="{{ url_for('logout') }}">Log Out</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
                 <li {% if request.path == '/login' %} class="active"{% endif %}><a href="{{ url_for('login') }}">Log In</a></li>
                 <li {% if request.path == '/register' %} class="active"{% endif %}><a href="{{ url_for('register') }}">Register</a></li>
@@ -42,7 +43,7 @@
     <ul class="sidenav" id="mobile-demo">
         <li {% if request.path == '/' %} class="active"{% endif %}><a href="{{ url_for('index') }}">All Books</a></li>
         {% if session.user %}
-        <li {% if request.path == "/profile/session.user" %} class="active"{% endif %}><a href="{{ url_for('profile', username=session['user']) }}">My Books</a></li>
+        <li {% if request.path == '/profile/' %} class="active"{% endif %}><a href="{{ url_for('profile', username=session['user']) }}">My Books</a></li>
         <li {% if request.path == '/add_book' %} class="active"{% endif %}><a href="{{ url_for('add_book') }}">Add a Book</a></li>
         <li {% if request.path == '/logout' %} class="active"{% endif %}><a href="{{ url_for('logout') }}">Log Out</a></li>
         {% else %}
