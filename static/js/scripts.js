@@ -17,6 +17,9 @@ $(document).ready(function(){
       return false;
       }
       });
+
+      //Text character Counter initializer for book desc and comments
+      $( '#desc, #comments').characterCounter(); 
   });
 
 //copyright span year date
