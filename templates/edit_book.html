@@ -30,29 +30,14 @@
             <div id="desc-max" class="form-text">Please keep the book description less than 500 characters long</div>
         </div>
         <!--5-rating-->
-        <div class="mb-3">
-            <div>
-                <label for="rating" class="form-label">Rating- How many stars do you give this book out of 5</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="1-star" value="1">
-                <label class="form-check-label" for="1-star">1</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="2-star" value="2">
-                <label class="form-check-label" for="2-star">2</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="3-star" value="3">
-                <label class="form-check-label" for="3-star">3</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="4-star" value="4">
-                <label class="form-check-label" for="4-star">4</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="5-star" value="5">
-                <label class="form-check-label" for="5-star">5</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <div>
+                    <label for="rating" class="form-label">Rating- How many stars do you give this book out of
+                        10:</label>
+                </div>
+                <input type="number" name="rating" class="form-control" id="rating" min="1" max="10" maxlength="2" value="{{ book.rating }}"
+                    placeholder="only enter a number from 1 to 10" required>
             </div>
         </div>
         <!--6-book comments-->
