@@ -1,10 +1,23 @@
-html, body, div, p, h1, h2, h3 {
+html,
+body,
+div,
+p,
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
 
 body {
   background-color: #e0f2f1;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 /*----Navbar section------*/
@@ -30,7 +43,7 @@ body {
   justify-content: center;
   flex-wrap: nowrap;
   text-align: center;
-margin-top: 30px;
+  margin-top: 30px;
 }
 
 .main-heading {
@@ -51,7 +64,8 @@ margin-top: 30px;
   margin-bottom: 10px;
 }
 
-.page-header, .add-a-book-btn {
+.page-header,
+.add-a-book-btn {
   text-align: center;
 }
 
@@ -84,7 +98,9 @@ margin-top: 30px;
   margin-right: 100px;
 }
 
-.add-form-col .input-field, .add-form-col label, #termsCon {
+.add-form-col .input-field,
+.add-form-col label,
+#termsCon {
   padding: 40px;
 }
 
@@ -192,7 +208,7 @@ margin-top: 30px;
 }
 
 .socials-links h6 {
-  margin-bottom: 3px ;
+  margin-bottom: 3px;
 }
 
 .socials-links i {
