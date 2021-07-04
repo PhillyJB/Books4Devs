@@ -23,7 +23,9 @@
     <!-- Materialize main nav bar-->
     <nav>
         <div class="nav-wrapper">
-            <a href="{{ url_for('index') }}" class="brand-logo"><i class="fas fa-laptop-code"></i> Books4Devs</a>
+                <a href="{{ url_for('index') }}" class="brand-logo">
+                <h6>Books4Devs</h6>
+                </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down" id="navigation">
                 {% set active_page = active_page %}
@@ -90,7 +92,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col s12 l6">
+            <div class="col s12 l6 footer-section-2">
                 <p>Copyright &copy; <span id="copyright-date"></span> Books4Devs.</p>
             </div>
         </div>

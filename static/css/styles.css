@@ -1,17 +1,22 @@
+html, body, div, p, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #e0f2f1;
 }
 
 /*----Navbar section------*/
 @media (min-width: 992px) {
-  .brand-logo i {
+  .brand-logo h6 {
     margin-left: 20px;
   }
 }
 
 .nav-wrapper {
   background-color: #26a69a;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 }
 
 /*-----Rows------*/
@@ -25,7 +30,7 @@ body {
   justify-content: center;
   flex-wrap: nowrap;
   text-align: center;
-
+margin-top: 30px;
 }
 
 .main-heading {
@@ -46,7 +51,7 @@ body {
   margin-bottom: 10px;
 }
 
-.page-header {
+.page-header, .add-a-book-btn {
   text-align: center;
 }
 
@@ -60,6 +65,38 @@ body {
   justify-content: space-evenly;
   text-align: center;
 }
+
+/*----add book  form------*/
+.add-form-row {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.add-form-col {
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+
+}
+
+.add-form-col .input-field, .add-form-col label, #termsCon {
+  padding: 40px;
+}
+
+.add-book-btn-row {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.add-book-btn-row button {
+  margin-bottom: 10px;
+}
+
+
+/*search box form*/
 
 .search-box-row form {
   width: 60%;
@@ -140,6 +177,10 @@ body {
   color: white;
   text-align: center;
   background-color: #00695c;
+}
+
+.footer-section-2 {
+  margin-top: 10px;
 }
 
 .socials-links ul {
