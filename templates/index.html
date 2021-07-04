@@ -1,45 +1,51 @@
 {% extends "base.html" %}
 {% set active_page = "index" %}
 {% block content %}
-<header class="header-section">
-    <div class="row">
-        <div class=" col s12 card main-heading">
-            <h1 class="">Books4Devs!</h1>
-            <p class="">A great platform that allows Software Developers and those interested to share
-                reviews,
-                recommendations and comments on books used in the computer programming world.</p>
-            {% if session.user %}
-            {% else %}
-            <p class="">
-                Why not <a style="text-decoration: none;" href="{{ url_for('register') }}">Register</a> or <a
-                    style="text-decoration: none;" href="{{ url_for('login') }}">LogIn </a> and add your own book
-                reviews too.
-            </p>
-            {% endif %}
+<div class="row main-heading-row">
+    <div class="col s12">
+        <div class="card main-heading">
+            <h2 class="">Books4Devs!</h1>
+                <h6 class="">A great platform that allows Software Developers and those interested to share
+                    reviews,
+                    recommendations and comments on books used in the computer programming world.</h6>
+                {% if session.user %}
+                {% else %}
+                <h6 class="">
+                    Why not <a style="text-decoration: none;" href="{{ url_for('register') }}">Register</a> or <a
+                        style="text-decoration: none;" href="{{ url_for('login') }}">LogIn </a> and add your own
+                    book
+                    reviews too.
+                </h6>
+                {% endif %}
         </div>
     </div>
-</header>
+</div>
 <div class="row">
     <div class="col s12 page-header">
-        <h2>All Books</h2>
+        <h3>All Books</h3>
     </div>
 </div>
 <!--Search box area(row)-->
-<div class="row">
-    <form action="{{ url_for('search') }}" method="POST" class="col-10">
-        <!--search box-->
-        <div class="col s10 offset-s1 card search-box-content">
-            <h6 class="card-header"><strong> Search for book(s):</strong></h6>
-            <div class="card-body">
-                <div class="input-group">
-                    <input class="input-field" type="text" name="book_search"
-                        placeholder="Search by book Name or Author(s)..." />
-                    <button class="btn" id="book_search" type="submit"><i class="fas fa-search"></i> Find</button>
-                    <a href="{{ url_for('index') }}" class="btn btn-primary">Clear Search</a>
+<div class="row search-box-row">
+    <div class="col s12">
+        <form action="{{ url_for('search') }}" method="POST">
+            <!--search box-->
+            <div class="card search-box-content">
+                <h6 class="card-header"><strong> Search for book(s):</strong></h6>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="input-field" type="text" name="book_search"
+                            placeholder="Search by book Name or Author(s)..." />
+                        <div class="search-buttons">
+                            <button class="btn" id="book_search" type="submit"><i class="fas fa-search"></i>
+                                Find</button>
+                            <a href="{{ url_for('index') }}" class="btn btn-primary">Clear Search</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 <!--Book Card Section Row-->
 <div class="row book-section-row">
@@ -54,9 +60,11 @@
             </div>
             <div class="card-content">
                 <h4 class="card-title">{{ book.title }}</h4>
-                <p>{{ book.author }}</p>
-                <p>Added by: {{ book.added_by }}</p>
-                <p>Rating: {{ book.rating }} /10 </p>
+                <div>
+                    {{ book.author }}
+                </div>
+                <div>Added by: {{ book.added_by }}</div>
+                <div>Rating: {{ book.rating }} /10 </div>
                 {% if session.user %}
                 {% if session.user|lower == book.added_by|lower %}
                 <a class="btn waves-effect waves-light" href="{{ url_for('edit_book', book_id=book._id) }}"><i
