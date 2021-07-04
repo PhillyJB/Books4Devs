@@ -183,6 +183,13 @@ def edit_book(book_id):
     return render_template("edit_book.html", book=book)
 
 
+@app.route("/view_book/<book_id>", methods=["GET", "POST"])
+def view_book(book_id):
+
+    book = mongo.db.developerBooks.find_one({"_id": ObjectId(book_id)})
+    return render_template("view_book.html", book=book)
+
+
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
     mongo.db.developerBooks.remove({"_id": ObjectId(book_id)})

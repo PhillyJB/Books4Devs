@@ -11,7 +11,7 @@ $(document).ready(function(){
 
     //J query defence programming for are you sure 
     $('.deletion-alert').click(function(){
-      if( confirm("are you sure you want to delete this book? Click OK to Confirm deletion or Cancel to go back")){
+      if( confirm("Are you sure you want to delete this book? This is not reversible once done. Click OK to confirm deletion or Cancel to go back")){
       return true;
       } else{
       return false;
