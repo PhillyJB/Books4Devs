@@ -44,7 +44,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists!")
             return redirect(url_for("register"))
         # this acts as the else statement which creates the
         # dictionary to be inserted
@@ -58,7 +58,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful")
+        flash("Registration Successful!")
         # if registration successful we want the user to go to
         # their profile page
         return redirect(url_for("index", username=session["user"]))
@@ -86,12 +86,12 @@ def login():
                         "profile", username=session["user"]))
             else:
                 # if the password is invalid/does not match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username and/or Password!")
                 return redirect(url_for("login"))
 
         else:
             # username does not exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password!")
             return redirect(url_for("login"))
 
     return render_template('login.html')
@@ -173,7 +173,7 @@ def edit_book(book_id):
         # this time in our mongo.db update we use .update()
         # this takes two parameters which are both dicts.
         mongo.db.developerBooks.update({"_id": ObjectId(book_id)}, book_edits)
-        flash("Your book was successfully Updated!")
+        flash("Your book was successfully updated!")
         return redirect(url_for(
             "profile", username=session["user"]))
     # we need to get the correct book(document) from the db

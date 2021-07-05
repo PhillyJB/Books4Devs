@@ -36,8 +36,20 @@ footer {
 }
 
 .nav-wrapper {
+  overflow: hidden;
   background-color: #26a69a;
-  margin-bottom: 35px;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+}
+
+main {
+  margin-top: 64px;
+}
+
+.mobile-demo {
+  width: 60%;
 }
 
 /*-----Rows------*/
@@ -166,7 +178,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 /*-----Cards for books-----*/
@@ -175,7 +187,7 @@ footer {
   margin-right: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  height: 650px;
+  height: 615px;
   width: 350px;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.40);
 }
@@ -183,12 +195,12 @@ footer {
 .card-image,
 .card-image img {
   width: 350px;
-  height: 370px;
+  height: 340px;
 }
 
 .book-card-style.card-content {
   width: 350px;
-  height: 330px;
+  height: 275px;
 }
 
 .card-title {
