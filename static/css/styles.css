@@ -11,13 +11,14 @@ h3 {
 
 body {
   background-color: #e0f2f1;
+  height:100vh;
+  margin:0;
   display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  flex-direction:column;
 }
 
-main {
-  flex: 1 0 auto;
+footer {
+  margin-top:auto;
 }
 
 /*----Navbar section------*/
@@ -101,7 +102,6 @@ main {
 /*----add book form------*/
 
 .add-form-col form {
-  align-items: center;
   margin: auto;
   width: 80%;
 }
@@ -210,6 +210,14 @@ main {
 /*-----viewing each book in more detail----*/
 .book-content div {
   margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+.book-content h5 {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
 }
 
 .book-content .btn {
