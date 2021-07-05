@@ -43,13 +43,9 @@ footer {
   top: 0;
   width: 100%;
 }
-
+/*---move content down as nav bar is fixed and overlay hidden--*/
 main {
   margin-top: 64px;
-}
-
-.mobile-demo {
-  width: 60%;
 }
 
 /*-----Rows------*/
