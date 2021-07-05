@@ -65,7 +65,7 @@ main {
 }
 
 .page-header,
-.add-a-book-btn {
+.add-book-btns {
   text-align: center;
 }
 
@@ -84,18 +84,21 @@ main {
   background-color: #b2dfdb;
 }
 
-/*----add book  form------*/
-.add-form-row {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  justify-content: space-evenly;
+/*-----logIn Form-------*/
+.login-form-btn, .login-form-text {
+  text-align: center;
 }
 
-.add-form-col {
+.login-form-text {
+  margin-top: 10px;
+}
+
+/*----add book form------*/
+
+.add-form-col form {
   align-items: center;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin: auto;
+  width: 80%;
 }
 
 .add-form-col .input-field,
@@ -104,16 +107,26 @@ main {
   padding: 40px;
 }
 
-.add-book-btn-row {
+.formTermsfield .form-check-label {
+  font-size: smaller;
+}
+
+.add-book-btn-row, .add-a-book-btn {
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: center;
 }
 
-.add-book-btn-row button {
+.add-book-btn-row .btn {
   margin-bottom: 10px;
+
 }
 
+/*-----Input fields on forms-------*/
+.input-field {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
 /*search box form*/
 

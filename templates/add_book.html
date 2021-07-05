@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="row add-form-row">
-    <div class="col s12 add-form-col">
+    <div class="col s12 m8 offset-m2 add-form-col">
         <form class="card" method="POST" action="{{ url_for('add_book') }}">
             <!--1-title-->
             <div class="row">
@@ -22,9 +22,9 @@
             <!--2-imgURL-link-->
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="imgURL" class="form-label">Image URL address</label>
                     <input type="text" name="imgURL" class="form-control" id="imgURL" aria-describedby="imgHelp"
                         required>
+                    <label for="imgURL" class="form-label">Image URL address</label>
                     <div id="imgHelp" class="form-text">Please copy and paste in the book front cover image URL address
                     </div>
                 </div>
@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <label for="desc" class="form-label">Book description</label>
-                    <textarea class="materialize-textarea" name="desc" id="desc" rows="3" aria-describedby="imgHelp"
+                    <textarea class="materialize-textarea" name="desc" id="desc" rows="3" aria-describedby="desc-max"
                         maxlength="1000" data-length="1000" required></textarea>
                     <div id="desc-max" class="form-text">Please keep the book description less than 1000 characters long
                     </div>
@@ -61,9 +61,9 @@
             <div class="row">
                 <div class="input-field col s12">
                     <label for="comments" class="form-label">Leave your review here</label>
-                    <textarea class="materialize-textarea" name="comments" id="comments" rows="3"
-                        aria-describedby="comment-max" maxlength="1000" data-length="1000" required></textarea>
-                    <div id="comment-max" class="form-text">Please keep your review no more than 1000 characters long
+                    <textarea class="materialize-textarea" name="comments" id="comments" aria-describedby="comment-max" maxlength="1000" data-length="1000" required></textarea>
+                    <div id="comment-max" class="form-text">
+                        Please keep your review to no more than 1000 characters long
                     </div>
                 </div>
             </div>
@@ -74,17 +74,17 @@
                     <input type="text" name="get_book" class="form-control" id="get_book">
                 </div>
             </div>
-            <!--8-terms&condition checkbox-->
+            <!--8a-terms&condition checkbox-->
             <div class="row">
                 <div class="input-field col s12 formTermsfield">
                     <label class="form-check-label" for="terms-check">
-                        <input type="checkbox" class="" id="terms-check" required>
-                        <span>I agree to the Books4Devs <a class="btn" id="termsConTrigger">Terms &
-                                Conditions</a> of posting a review</span></label>
+                        <input type="checkbox" id="terms-check" required>
+                        <span>I agree to the Books4Devs<a id="termsConTrigger">Terms &
+                            Conditions</a> of posting a review</span>
+                    </label>
                 </div>
-
             </div>
-            <!--Terms and Conditions Div -->
+            <!--8b-Terms and Conditions Div -->
             <div class="row" id="termsCon">
                 <div class="col s10">
                     <p><strong>Terms and Conditions:</strong><br>

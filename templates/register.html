@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
 {% set active_page = "register" %}
 {% block content %}
-<h2>Register</h2>
-<!--Username Field-->
 <div class="row">
-    <form class="col col-md-8" method="POST" action="{{ url_for('register') }}">
-        <div class="mb-3 row">
-            <label for="username" class="col-sm-2 col-form-label">Username</label>
-            <div class="col-sm-10 align-self-center">
-                <input type="text" class="form-control" id="username" name="username" minlength="5" maxlength="15"
-                    pattern="^[a-zA-Z0-9]{5,15}$" required>
+    <div class="col s12 page-header">
+        <h3>Register</h3>
+    </div>
+</div>
+<!--Register Form-->
+<div class="row">
+    <div class="col s12 m8 offset-m2 add-form-col">
+    <form class="card-panel col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+        <!--Username Field-->
+        <div class="row">
+            <div class="col s12 input-field">
+                <input type="text" class="validate" id="username" name="username" minlength="5" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{}5,15$" placeholder="Username must be between 5 to 15 characters and only letters and/or numbers" required>
+                <label for="username">Username</label>
             </div>
         </div>
         <!--Password Field-->
-        <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10 align-self-center">
-                <input type="password" class="form-control" id="inputPassword" name="password" minlength="5"
-                    maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+        <div class="row">
+            <div class="col s12 input-field">
+                <input type="password" class="validate" id="inputPassword" name="password" minlength="5"
+                    maxlength="15" pattern="^[a-zA-Z0-9]{}5,15$" placeholder="Password must be between 5 to 15 characters and only letters and/or numbers" required>
+                <label for="inputPassword" class="form-label">Password</label>
             </div>
         </div>
-        <!--Submit Registration Field-->
-        <div class="mb-3 row">
-            <div class="col-sm-10 align-self-center">
-                <button class="btn btn-primary" type="submit">Register</button>
+        <!--Submit Register Field-->
+        <div class="row">
+            <div class="col s12 login-form-btn">
+                <button class="btn" type="submit">Log In</button>
+            </div>
+            <div class="col s12 login-form-text">
+                    Already Registered?
+                    <a href="{{ url_for('login') }}"><strong>Log In</strong></a> to your Account
             </div>
         </div>
     </form>
 </div>
-
-<div class="row">
-    <div class="col">
-        <p>
-            Already Registered?
-            <a href="{{ url_for('login') }}">Log In</a>
-        </p>
-    </div>
 </div>
 {% endblock %}
