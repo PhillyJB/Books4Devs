@@ -1,44 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="">
-    <div class="row">
-        <div class="col s12">
-            <h3>{{ book.title }}</h3>
-        </div>
+<div class="row">
+    <div class="col s12 page-header">
+        <h3>{{ book.title }}</h3>
     </div>
-</header>
+</div>
 <!--Book Card Section Row-->
 <div class="row">
-    <div class="col s12 l4 card-image book-image">
-        <!--Each Individual Card-->
+    <!--Each Individual Card-->
+    <div class="col s12 offset-s1 l5 card-image book-image">
         <img src="{{ book.imgURL }}">
     </div>
-    <div class="col s12 l8 book-content">
-        <h5 class="card-title">{{ book.author }}</h5>
+    <!--Book details-->
+    <div class="col s12 offset-s1 l7 book-content">
         <div class="col s12">
-        Description:<br>
-        {{ book.desc }}
-        </div>
-        <div>
-        Added by: {{ book.added_by }}
-        </div>
-        <div>
-        Rating: {{ book.rating }} /10
+            <h5 class="card-title"><strong>Author: </strong>{{ book.author }}</h5>
         </div>
         <div class="col s12">
-        {{ book.added_by }}'s Review:<br>
-        {{ book.comments }}
+            <strong>Description:</strong><br>
+            {{ book.desc }}
+        </div>
+        <div class="col s12">
+            <strong>Added by: </strong>{{ book.added_by }}
+        </div>
+        <div class="col s12">
+            <strong>Rating: </strong>{{ book.rating }} /10
+        </div>
+        <div class="col s12">
+            <strong>{{ book.added_by }}'s review:</strong><br>
+            {{ book.comments }}
         </div>
         <div class="col s12 ">
-        {% if session.user %}
-        {% if session.user|lower == book.added_by|lower %}
+            {% if session.user %}
+            {% if session.user|lower == book.added_by|lower %}
             <a class="btn waves-effect waves-light" href="{{ url_for('edit_book', book_id=book._id) }}"><i
                     class="far fa-edit"></i>Edit</a>
-            <a class="btn waves-effect waves-light deletion-alert" href="{{ url_for('delete_book', book_id=book._id) }}"><i
-                    class="far fa-trash-alt"></i>Delete</a>
+            <a class="btn waves-effect waves-light deletion-alert"
+                href="{{ url_for('delete_book', book_id=book._id) }}"><i class="far fa-trash-alt"></i>Delete</a>
             {% endif %}
             {% endif %}
-            <a class="btn waves-effect waves-light" href="{{ book.get_book }}" target="_blank"><i class="fas fa-shopping-cart"></i> Get this Book</a>
+            <a class="btn waves-effect waves-light" href="{{ book.get_book }}" target="_blank"><i
+                    class="fas fa-shopping-cart"></i> Get this Book</a>
         </div>
     </div>
 </div>

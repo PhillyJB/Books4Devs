@@ -78,7 +78,7 @@ def login():
                 existing_user["password"], request.form.get(
                     "password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(
+                flash("Hello {}, Welcome!".format(
                             request.form.get("username")))
                 # if log in successful we want the user to go to their
                 # profile page
@@ -118,7 +118,7 @@ def logout():
     # this can be done in couple ways
     # 1-session.clear() - which would remove all session cookies on the app
     # 2-session.pop("user")
-    flash("You have been logged out")
+    flash("You have been logged out!")
     session.pop("user")
     return redirect(url_for("login"))
 
@@ -143,7 +143,7 @@ def add_book():
         }
 
         mongo.db.developerBooks.insert_one(book)
-        flash("Your book was successfully added")
+        flash("Your book was successfully added!")
         return redirect(url_for(
             "profile", username=session["user"]))
 
@@ -173,7 +173,7 @@ def edit_book(book_id):
         # this time in our mongo.db update we use .update()
         # this takes two parameters which are both dicts.
         mongo.db.developerBooks.update({"_id": ObjectId(book_id)}, book_edits)
-        flash("Your book was successfully Updated")
+        flash("Your book was successfully Updated!")
         return redirect(url_for(
             "profile", username=session["user"]))
     # we need to get the correct book(document) from the db
@@ -193,7 +193,7 @@ def view_book(book_id):
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
     mongo.db.developerBooks.remove({"_id": ObjectId(book_id)})
-    flash("Book successfully deleted")
+    flash("Book successfully deleted!")
     return redirect(url_for(
                         "profile", username=session["user"]))
 

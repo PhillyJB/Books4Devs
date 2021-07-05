@@ -69,6 +69,11 @@ main {
   text-align: center;
 }
 
+/*-----Flash Message-------*/
+.flash-message {
+  background-color: rgb(49, 224, 49);
+}
+
 /*-----Search Box on index page-----*/
 .search-box-row,
 .main-heading,
@@ -150,7 +155,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /*-----Cards for books-----*/
@@ -200,7 +205,20 @@ main {
   .colum-for-cards {
     margin: auto;
   }
+}
 
+/*-----viewing each book in more detail----*/
+.book-content div {
+  margin-bottom: 20px;
+}
+
+.book-content .btn {
+  margin: 5px;
+}
+
+.book-image {
+  display: flex;
+  justify-content: center;
 }
 
 /*-----footer section------*/
