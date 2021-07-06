@@ -88,7 +88,7 @@ main {
 
 /*-----Flash Message-------*/
 .flash-message {
-  background-color: rgb(49, 224, 49);
+  background-color: red;
 }
 
 /*-----Search Box on index page-----*/
@@ -185,18 +185,18 @@ main {
   margin-top: 20px;
   margin-bottom: 20px;
   height: 615px;
-  width: 350px;
+  width: 330px;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.40);
 }
 
 .card-image,
 .card-image img {
-  width: 350px;
+  width: 330px;
   height: 340px;
 }
 
 .book-card-style.card-content {
-  width: 350px;
+  width: 330px;
   height: 275px;
 }
 
@@ -220,6 +220,7 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     margin: auto;
+    text-align: center;
   }
 
   .colum-for-cards {
@@ -227,15 +228,64 @@ main {
   }
 }
 
+/*-----Cards for Books at lower screen sizes max 770px----*/
+
+@media (max-width: 770px) {
+
+  .book-card-style {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 615px;
+    width: 310px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.40);
+  }
+  
+  .card-image,
+  .card-image img {
+    width: 310px;
+    height: 340px;
+  }
+  
+  .book-card-style.card-content {
+    width: 310px;
+    height: 275px;
+  }
+  
+  .card-title {
+    margin-top: 0;
+  }
+  
+  .card-content div,
+  .card-content .btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .btn-floating i {
+    font-size: large;
+  }
+  
+}
+
 /*-----viewing each book in more detail----*/
+.book-details-row {
+  margin-bottom: 40px;
+}
+
 .book-content div {
   margin-bottom: 20px;
 }
 
 @media (max-width: 992px) {
 .book-content h5 {
-  margin-top: 10px;
+  margin-top: 40px;
   padding-top: 10px;
+}
+
+.book-image {
+  margin-bottom: 20px;
 }
 
 }
@@ -247,6 +297,14 @@ main {
 .book-image {
   display: flex;
   justify-content: center;
+}
+
+/*-----size of image resize when views in the more details section----*/
+.book-image img {
+  width: 320px;
+  height: 380px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /*-----footer section------*/
