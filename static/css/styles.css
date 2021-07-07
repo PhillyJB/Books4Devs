@@ -100,7 +100,7 @@ main {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   text-align: center;
 }
 
