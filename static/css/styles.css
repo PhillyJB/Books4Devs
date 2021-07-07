@@ -140,8 +140,8 @@ main {
   text-align: center;
 }
 
-.add-book-btn-row .btn {
-  margin-bottom: 10px;
+.add-book-btn-row .btn, .add-book-btn-row-edit .btn {
+  margin-bottom: 20px;
 
 }
 
@@ -150,15 +150,18 @@ main {
 }
 
 @media (min-width: 768px) {
-  .add-book-btn-row {
+  .add-book-btn-row, .add-book-btn-row-edit {
     margin-top: 60px;
   }
-
 }
 
 @media (max-width: 767.98px) {
   .add-book-btn-row {
     margin-top: 100px;
+  }
+
+  .add-book-btn-row-edit {
+    margin-top: 150px;
   }
 
   .bottom-of-form {
