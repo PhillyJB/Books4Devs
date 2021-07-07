@@ -11,7 +11,7 @@
 {% if developer_books %}
 <div class="row">
     <div class="col s12 add-a-book-btn">
-        <a class="btn" href="{{ url_for('add_book') }}">Add a Book</a>
+        <a class="btn" href="{{ url_for('add_book') }}"><i class="fas fa-plus"></i> Add a Book</a>
     </div>
 </div>
 {% endif %}
@@ -53,8 +53,7 @@
         <h4>There are currently no books in your profile!</h4>
     </div>
     <div class="col s12 m12 l12 page-header add-a-book-now-div">
-        <strong>Why not go ahead and add a book now:</strong> <a class="btn" href="{{ url_for('add_book') }}"><i
-                class="far fa-plus-square"></i> Add a Book</a>
+        <strong>Why not go ahead and add a book now:</strong> <a class="btn" href="{{ url_for('add_book') }}"><i class="fas fa-plus"></i> Add a Book</a>
     </div>
     {% endif %}
 </div>

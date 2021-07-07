@@ -5,6 +5,7 @@ Books4Devs is an online platform that allows for the recommendation and review o
 
 ## FEATURES
 ### Existing Features
+
 ### Future Features
 
 ## TECHNOLOGIES USED
