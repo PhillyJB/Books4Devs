@@ -196,6 +196,13 @@ main {
   margin-bottom: 5px;
 }
 
+@media (max-width: 487.98px) {
+
+  button.clear-search-btn {
+    margin-top: 10px
+  }
+}
+
 /*------cards for books row and the columns------*/
 .book-section-row {
   display: flex;
