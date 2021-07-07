@@ -134,7 +134,7 @@ main {
   font-size: smaller;
 }
 
-.add-book-btn-row, .add-a-book-btn {
+.add-book-btn-row, .add-a-book-btn, .add-book-btn-row-edit {
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: center;
