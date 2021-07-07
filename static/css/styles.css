@@ -161,7 +161,8 @@ main {
   }
 
   .add-book-btn-row-edit {
-    margin-top: 150px;
+    margin-top: 170px;
+    text-align: center;
   }
 
   .bottom-of-form {
