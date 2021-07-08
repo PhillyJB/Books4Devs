@@ -5,12 +5,12 @@
     <div class="col s12">
         <div class="card main-heading">
             <h3 class=""><strong>Books4Devs</strong></h3>
-                <h6 class="">A great platform that allows Software Developers and those interested to share
+                <h6>A great platform that allows Software Developers and those interested to share
                     reviews,
                     recommendations and comments on books used in the computer programming world.</h6>
                 {% if session.user %}
                 {% else %}
-                <h6 class="">
+                <h6>
                     Why not <a style="text-decoration: none;" href="{{ url_for('register') }}"><strong>Register</strong></a> or <a
                         style="text-decoration: none;" href="{{ url_for('login') }}"><strong>LogIn</strong> </a> and add your own
                     book

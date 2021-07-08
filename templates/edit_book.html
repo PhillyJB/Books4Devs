@@ -11,7 +11,7 @@
             <!--1-title-->
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="title" class="form-label">Book Title</label>
+                    <label for="title" class="form-label">Book Title*</label>
                     <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp"
                         value="{{ book.title}}" required>
                     <div id="titleHelp" class="form-text">
@@ -25,7 +25,7 @@
                 <div class="input-field col s12">
                     <input type="text" name="imgURL" class="form-control" id="imgURL" aria-describedby="imgHelp"
                         value="{{ book.imgURL }}" required>
-                    <label for="imgURL" class="form-label">Image URL address</label>
+                    <label for="imgURL" class="form-label">Image URL address*</label>
                     <div id="imgHelp" class="form-text">
                         Please copy and paste in the book front cover image URL address
                     </div>
@@ -34,7 +34,7 @@
             <!--3-author(s)-->
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="author" class="form-label">Author(s)</label>
+                    <label for="author" class="form-label">Author(s)*</label>
                     <input type="text" name="author" class="form-control" id="author" value="{{ book.author }}"
                         required>
                 </div>
@@ -42,7 +42,7 @@
             <!--4-description-->
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="desc" class="form-label">Book description</label>
+                    <label for="desc" class="form-label">Book description*</label>
                     <textarea class="materialize-textarea" name="desc" id="desc" rows="3" aria-describedby="desc-max"
                         maxlength="1000" data-length="1000" required>{{- book.desc -}}</textarea>
                     <div id="desc-max" class="form-text">Please keep the book description less than 1000 characters long
@@ -52,19 +52,17 @@
             <!--5-rating-->
             <div class="row">
                 <div class="input-field col s12">
-                    <div>
                         <label for="rating" class="form-label">Rating- How many stars do you give this book out of
-                            10:</label>
+                            10*</label>
                         <input type="number" name="rating" class="form-control" id="rating" min="1" max="10"
                             maxlength="2" value="{{ book.rating }}" placeholder="only enter a number from 1 to 10"
                             required>
-                    </div>
                 </div>
             </div>
             <!--6-book comments-->
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="comments" class="form-label">Leave your review here</label>
+                    <label for="comments" class="form-label">Leave your review here*</label>
                     <textarea class="materialize-textarea" name="comments" id="comments" aria-describedby="comment-max"
                         maxlength="1000" data-length="1000" required>{{- book.comments -}}</textarea>
                     <div id="comment-max" class="form-text">
@@ -76,11 +74,19 @@
             <!--7-get the book link-->
             <div class="row bottom-of-form">
                 <div class="input-field col s12">
-                    <label for="get_book" class="form-label">To get this book:</label>
+                    <label for="get_book" class="form-label">To get this book*</label>
                     <input type="text" name="get_book" class="form-control" value="{{ book.get_book }}" id="get_book"
                         aria-describedby="get_book-1" required>
                     <div id="get_book-1" class="form-text">
                     Copy and Paste in the Website URL for where someone can Purchase this book.
+                    </div>
+                </div>
+            </div>
+            <!--Required fields iformarion-->
+            <div class="row bottom-of-form">
+                <div class="input-field col s12">
+                    <div style="padding-top: 0;">
+                        * All fields are required
                     </div>
                 </div>
             </div>
