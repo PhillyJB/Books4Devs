@@ -175,7 +175,7 @@ Initially used an if statement in side each <li> element but for my profile page
     This jinja if else statement worked to highlight all active pages except the profile page one and I eneded up trying to add several different options in front of the ‘profile/’ bit. Like “session.user, session[user], username, <username>, <session.user>.” these all failed. I then tried to see if I typed in the username manually in front of the ‘profile/’ which I did with the user account I created and it worked as it matched the required if statement. So this definitely confirmed that I needed another parameter. 
 
 * **3 - Solution**
-    * In the end I gave up on the if statement using jinja as I had stumbled across another method on stack overflow. I found a link through the data-centric slack group which led me to a [stack overflow](https://stackoverflow.com/questions/55895502/dynamically-setting-active-class-with-flask-and-jinja2/55895621#55895621) solution. The idea  used is on the base.html  above the  <li> links to be highlighted to set the following variable (please note I donot think it realle matters where you this in the base.html:
+    * In the end I gave up on the if statement using jinja as I had stumbled across another method on stack overflow. I found a link through the data-centric slack group which led me to a [stack overflow](https://stackoverflow.com/questions/55895502/dynamically-setting-active-class-with-flask-and-jinja2/55895621#55895621) solution. The idea  used is on the base.html  above the  **li** links to be highlighted to set the following variable (please note I donot think it realle matters where you this in the base.html:
 
     ```
     {% set active_page = active_page|default('index') %}
@@ -245,9 +245,6 @@ Initially used an if statement in side each <li> element but for my profile page
     ```
     pattern="^[a-zA-Z0-9]{ }5,15$"
     ```
-
-
-
 
 ### Validation of Code
 
